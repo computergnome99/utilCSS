@@ -1,0 +1,54 @@
+$primary: #814EFA;
+$secondary: #3D62F9;
+$tertiary: #49B3F5;
+$success: #4CF46E;
+$danger: #F43B3B;
+$warning: #E4C132;
+$neutral: #94B6C2;
+$light: #E9F3FF;
+$dark: #0D1117;
+$white: #FFFFFF;
+$black: #000000;
+
+$color-map: (
+    primary: $primary,
+    secondary: $secondary,
+    tertiary: $tertiary,
+    success: $success,
+    danger: $danger,
+    warning: $warning,
+    neutral: $neutral,
+    light: $light,
+    dark: $dark,
+    white: $white,
+    black: $black
+);
+
+$shadow-size-map: (
+    xl: 8px 32px,
+    lg: 6px 24px,
+    md: 4px 16px,
+    sm: 2px 8px,
+    xs: 1px 2px
+);
+
+
+@each $name, $color in $color-map {
+    .bg-#{$name} {
+        background-color: $color;
+    }
+    .text-#{$name}, .fc-#{$name} {
+        color: $color;
+    }
+    .border-#{$name} {
+        border-color: $color;
+    }
+    .shadow-#{$name} {
+        box-shadow: 0px 2px 8px rgba($color, 0.5);
+    }
+    @each $size, $attr in $shadow-size-map {
+        .shadow-#{$size}-#{$name} {
+            box-shadow: 0px #{$attr} rgba($color, 0.5);
+        }
+    }
+}

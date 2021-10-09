@@ -1,0 +1,69 @@
+:root {
+    font-size: 16px;
+    line-height: 16px;
+}
+
+$font-family-text: 'Segoe UI Variable Text', system-ui, sans-serif;
+$font-family-header: 'Segoe UI Variable Display', system-ui, sans-serif;
+$font-family-small: 'Segoe UI Variable Small', system-ui, sans-serif;
+$font-family-serif: 'Cambria', serif;
+$font-family-mono: 'Source Code Pro', monospace;
+
+$font-family-map: (
+    normal: $font-family-text,
+    regular: $font-family-text,
+    text: $font-family-text,
+    header: $font-family-header,
+    small: $font-family-small,
+    serif: $font-family-serif,
+    mono: $font-family-mono
+);
+
+@each $name, $family in $font-family-map {
+    .ff-#{$name} {
+        font-family: $family;
+    }
+}
+
+$font-weight-map: (
+    light: 100,
+    lighter: 300,
+    normal: 500,
+    bolder: 700,
+    bold: 1000,
+    1: 100,
+    2: 200,
+    3: 300,
+    4: 400,
+    5: 500,
+    6: 600,
+    7: 700,
+    8: 800,
+    9: 900,
+    10: 1000
+);
+
+@each $name, $weight in $font-weight-map {
+    .fw-#{$name} {
+        font-weight: #{$weight};
+    }
+}
+
+$font-size-map: (
+    1: 0.75rem,
+    2: 1rem,
+    3: 1.5rem,
+    4: 2rem,
+    5: 2.5rem,
+    6: 3rem,
+    7: 3.5rem,
+    8: 4rem,
+    9: 4.5rem,
+    10: 5rem
+);
+
+@each $name, $size in $font-size-map {
+    .fs-#{$name} {
+        font-size: #{$size};
+    }
+}

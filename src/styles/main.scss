@@ -3,9 +3,10 @@
 }
 
 @import 'color';
+@import 'font';
 
 body {
-    background-color: $dark;
+    background-color: $light;
 }
 
 .color-palette {
@@ -15,7 +16,13 @@ body {
     gap: 16px;
 
     div {
-        border: 1px solid $light;
+        border-width: 1px;
+        border-style: solid;
         border-radius: 8px;
+
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
 }
