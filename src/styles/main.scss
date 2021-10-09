@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+}
+
+@import 'color';
+
+body {
+    background-color: $dark;
+}
+
+.color-palette {
+    display: grid;
+    grid-template-columns: repeat(3, 32px);
+    grid-template-rows: repeat(3, 32px);
+    gap: 16px;
+
+    div {
+        border: 1px solid $light;
+        border-radius: 8px;
+    }
+}

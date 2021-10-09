@@ -1,0 +1,28 @@
+$primary: #814EFA;
+$secondary: #3d62f9;
+$tertiary: #49b3f5;
+$success: #4cf46e;
+$danger: #f43b3b;
+$warning: #e4c132;
+$neutral: #94b6c2;
+$light: #c8defe;
+$dark: #0D1117;
+
+$color-map: (
+    primary: $primary,
+    secondary: $secondary,
+    tertiary: $tertiary,
+    success: $success,
+    danger: $danger,
+    warning: $warning,
+    neutral: $neutral,
+    light: $light,
+    dark: $dark
+);
+
+
+@each $name, $color in $color-map {
+    .bg-#{$name} {
+        background-color: $color;
+    }
+}
