@@ -3,6 +3,8 @@
     line-height: 16px;
 }
 
+//font family (ff)
+
 $font-family-text: 'Segoe UI Variable Text', system-ui, sans-serif;
 $font-family-header: 'Segoe UI Variable Display', system-ui, sans-serif;
 $font-family-small: 'Segoe UI Variable Small', system-ui, sans-serif;
@@ -24,6 +26,8 @@ $font-family-map: (
         font-family: $family;
     }
 }
+
+//font weight (fw)
 
 $font-weight-map: (
     light: 100,
@@ -48,6 +52,8 @@ $font-weight-map: (
         font-weight: #{$weight};
     }
 }
+
+//font size (fs)
 
 $font-size-map: (
     1: 0.75rem,

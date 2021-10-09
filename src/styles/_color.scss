@@ -1,3 +1,5 @@
+//theme colors
+
 $primary: #814EFA;
 $secondary: #3D62F9;
 $tertiary: #49B3F5;
@@ -23,6 +25,8 @@ $color-map: (
     white: $white,
     black: $black
 );
+
+//shadow sizes
 
 $shadow-size-map: (
     xl: 8px 32px,
@@ -50,5 +54,11 @@ $shadow-size-map: (
         .shadow-#{$size}-#{$name} {
             box-shadow: 0px #{$attr} rgba($color, 0.5);
         }
+    }
+}
+
+@each $name, $size in $shadow-size-map {
+    .shadow-#{$name} {
+        box-shadow: 0px #{$size} rgba($dark, 0.5)
     }
 }
