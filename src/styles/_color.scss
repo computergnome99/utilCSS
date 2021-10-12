@@ -57,8 +57,39 @@ $shadow-size-map: (
     }
 }
 
-@each $name, $size in $shadow-size-map {
-    .shadow-#{$name} {
-        box-shadow: 0px #{$size} rgba($dark, 0.5)
+$text-type-map: (
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a,
+    span,
+    ul,
+    li
+);
+
+@function not-chain($list) {
+    $output: '';
+    @each $selector in $list {
+        $output: $output + ':not(#{$selector})';
     }
+    @return $output;
+}
+
+$exclude: $text-type-map;
+
+@each $name, $size in $shadow-size-map {
+    @each $type in $text-type-map {
+        #{$type}.shadow-#{$name} {
+            text-shadow: 0px #{$size} rgba($dark, 0.65);
+        }
+    }
+
+    .shadow-#{$name}#{not-chain($exclude)} {
+        box-shadow: 0px #{$size} rgba($dark, 0.5);
+    }
+
 }
