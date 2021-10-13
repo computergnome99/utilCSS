@@ -1,43 +1,5 @@
-//color map
-
-$color-map: (
-    primary: $primary,
-    secondary: $secondary,
-    tertiary: $tertiary,
-    success: $success,
-    danger: $danger,
-    warning: $warning,
-    neutral: $neutral,
-    light: $light,
-    dark: $dark,
-    white: $white,
-    black: $black
-);
-
-//shadow sizes
-
-$shadow-size-map: (
-    xl: (y: 8px, blur: 32px, opacity: 0.85),
-    lg: (y: 6px, blur: 24px, opacity: 0.75),
-    md: (y: 4px, blur: 16px, opacity: 0.5),
-    sm: (y: 2px, blur: 8px, opacity: 0.35),
-    xs: (y: 1px, blur: 2px, opacity: 0.15)
-);
-
-$text-type-map: (
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    a,
-    span,
-    ul,
-    li
-);
-
+//function - differ text and other elments
+$exclude: $text-type-map;
 @function not-chain($list) {
     $output: '';
     @each $selector in $list {
@@ -46,8 +8,15 @@ $text-type-map: (
     @return $output;
 }
 
-$exclude: $text-type-map;
+//mixin
+// @mixin box-shadow($size, $color: $dark) {
+//     $shad-y: map-get($shadow-size-map, $size, y);
+//     $shad-blur: map-get($shadow-size-map, $size, blur);
+//     $shad-opacity: map-get($shadow-size-map, $size, opacity);
+//     box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
+// }
 
+//classes
 @each $name, $size in $shadow-size-map {
     @each $type in $text-type-map {
         #{$type}.shadow-#{$name} {
@@ -62,6 +31,7 @@ $exclude: $text-type-map;
         $shad-blur: map-get($map: $size, $key: blur);
         $shad-opacity: map-get($map: $size, $key: opacity);
         box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($dark, $shad-opacity);
+        // @include box-shadow($name, $dark);
     }
 }
 
