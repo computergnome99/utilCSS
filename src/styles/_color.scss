@@ -29,33 +29,12 @@ $color-map: (
 //shadow sizes
 
 $shadow-size-map: (
-    xl: 8px 32px,
-    lg: 6px 24px,
-    md: 4px 16px,
-    sm: 2px 8px,
-    xs: 1px 2px
+    xl: (y: 8px, blur: 32px, opacity: 0.85),
+    lg: (y: 6px, blur: 24px, opacity: 0.75),
+    md: (y: 4px, blur: 16px, opacity: 0.5),
+    sm: (y: 2px, blur: 8px, opacity: 0.35),
+    xs: (y: 1px, blur: 2px, opacity: 0.15)
 );
-
-
-@each $name, $color in $color-map {
-    .bg-#{$name} {
-        background-color: $color;
-    }
-    .text-#{$name}, .fc-#{$name} {
-        color: $color;
-    }
-    .border-#{$name} {
-        border-color: $color;
-    }
-    .shadow-#{$name} {
-        box-shadow: 0px 2px 8px rgba($color, 0.5);
-    }
-    @each $size, $attr in $shadow-size-map {
-        .shadow-#{$size}-#{$name} {
-            box-shadow: 0px #{$attr} rgba($color, 0.5);
-        }
-    }
-}
 
 $text-type-map: (
     h1,
@@ -84,12 +63,48 @@ $exclude: $text-type-map;
 @each $name, $size in $shadow-size-map {
     @each $type in $text-type-map {
         #{$type}.shadow-#{$name} {
-            text-shadow: 0px #{$size} rgba($dark, 0.65);
+            $shad-y: map-get($map: $size, $key: y);
+            $shad-blur: map-get($map: $size, $key: blur);
+            $shad-opacity: map-get($map: $size, $key: opacity);
+            text-shadow: 0px #{$shad-y} #{$shad-blur} rgba($dark, $shad-opacity);
         }
     }
-
     .shadow-#{$name}#{not-chain($exclude)} {
-        box-shadow: 0px #{$size} rgba($dark, 0.5);
+        $shad-y: map-get($map: $size, $key: y);
+        $shad-blur: map-get($map: $size, $key: blur);
+        $shad-opacity: map-get($map: $size, $key: opacity);
+        box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($dark, $shad-opacity);
     }
+}
 
+
+@each $name, $color in $color-map {
+    .bg-#{$name} {
+        background-color: $color;
+    }
+    .text-#{$name}, .fc-#{$name} {
+        color: $color;
+    }
+    .border-#{$name} {
+        border-color: $color;
+    }
+    .shadow-#{$name} {
+        box-shadow: 0px 2px 8px rgba($color, 0.5);
+    }
+    @each $shad-name, $size in $shadow-size-map {
+        @each $type in $text-type-map {
+            #{$type}.shadow-#{$shad-name}-#{$name} {
+                $shad-y: map-get($map: $size, $key: y);
+                $shad-blur: map-get($map: $size, $key: blur);
+                $shad-opacity: map-get($map: $size, $key: opacity);
+                text-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
+            }
+        }
+        .shadow-#{$shad-name}-#{$name}#{not-chain($exclude)} {
+            $shad-y: map-get($map: $size, $key: y);
+            $shad-blur: map-get($map: $size, $key: blur);
+            $shad-opacity: map-get($map: $size, $key: opacity);
+            box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
+        }
+    }
 }

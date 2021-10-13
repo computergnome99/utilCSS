@@ -71,5 +71,6 @@ $font-size-map: (
 @each $name, $size in $font-size-map {
     .fs-#{$name} {
         font-size: #{$size};
+        line-height: #{$size};
     }
 }
