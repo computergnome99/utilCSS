@@ -1,25 +1,5 @@
+@import 'theme';
+@import 'maps';
 @import 'reset';
 @import 'color';
 @import 'font';
-
-body {
-    background-color: $light;
-}
-
-.color-palette {
-    display: grid;
-    grid-template-columns: repeat(3, 32px);
-    grid-template-rows: repeat(3, 32px);
-    gap: 16px;
-
-    div {
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 8px;
-
-        display: grid;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-}
