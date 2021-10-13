@@ -27,13 +27,13 @@ $exclude: $text-type-map;
 
 //classes
 @each $name, $color in $color-map {
-    .bg-#{$name} {
+    .bg-#{$name}, .background-#{$name} {
         background-color: $color;
     }
     .text-#{$name}, .fc-#{$name} {
         color: $color;
     }
-    .border-#{$name} {
+    .border-#{$name}, .bc-#{$name} {
         border-color: $color;
     }
     .shadow-#{$name} {
