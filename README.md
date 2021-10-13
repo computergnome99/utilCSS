@@ -8,6 +8,7 @@ A modern CSS framework for the UtilGroup family of Products.
 |-------|-------|------------|
 | shadow-#{name} | box-shadow, text-shadow | [ xl, lg, md, sm, xs ] |
 | shadow-#{name}-#{color} | box-shadow, text-shadow | [ xl, lg, md, sm, xs ], color |
+| shadow-#{color} | box-shadow, text-shadow | color |
 
 ## Font
 | Class | Mixin | Properties |
@@ -21,6 +22,6 @@ A modern CSS framework for the UtilGroup family of Products.
 
 | Class | Mixin | Properties |
 |-------|-------|------------|
-| background-#{name}, bg-#{name} | | color |
-| text-#{name}, fc-#{name} | | color |
-| border-#{name}, bc-#{name} | | color |
+| background-#{name}, bg-#{name} | background | color |
+| text-#{name}, fc-#{name} | text | color |
+| border-#{name}, bc-#{name} | border | color |

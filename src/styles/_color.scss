@@ -25,28 +25,43 @@ $exclude: $text-type-map;
     text-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
 }
 
+@mixin background($color) {
+    background-color: $color;
+}
+
+@mixin text($color) {
+    color: $color;
+}
+
+@mixin border($color) {
+    border-color: $color;
+}
+
 //classes
 @each $name, $color in $color-map {
     .bg-#{$name}, .background-#{$name} {
-        background-color: $color;
+        @include background($color);
     }
     .text-#{$name}, .fc-#{$name} {
-        color: $color;
+        @include text($color);
     }
     .border-#{$name}, .bc-#{$name} {
-        border-color: $color;
-    }
-    .shadow-#{$name} {
-        box-shadow: 0px 2px 8px rgba($color, 0.5);
+        @include border($color);
     }
     @each $shad-name, $size in $shadow-size-map {
         @each $type in $text-type-map {
             #{$type}.shadow-#{$shad-name}-#{$name} {
                 @include text-shadow($shad-name, $color)
             }
+            #{$type}.shadow-#{$name} {
+                @include text-shadow(md, $color);
+            }
         }
         .shadow-#{$shad-name}-#{$name}#{not-chain($exclude)} {
             @include box-shadow($shad-name, $color);
+        }
+        .shadow-#{$name}#{not-chain($exclude)} {
+            @include box-shadow(md, $color);
         }
     }
 }
