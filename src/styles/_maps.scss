@@ -1,0 +1,43 @@
+//font size
+$font-size-map: (
+    1: 0.75rem,
+    2: 1rem,
+    3: 1.5rem,
+    4: 2rem,
+    5: 2.5rem,
+    6: 3rem,
+    7: 3.5rem,
+    8: 4rem,
+    9: 4.5rem,
+    10: 5rem
+);
+
+//font weight
+$font-weight-map: (
+    light: $font-weight-light,
+    lighter: $font-weight-lighter,
+    normal: $font-weight-normal,
+    bolder: $font-weight-bolder,
+    bold: $font-weight-bold,
+    1: 100,
+    2: 200,
+    3: 300,
+    4: 400,
+    5: 500,
+    6: 600,
+    7: 700,
+    8: 800,
+    9: 900,
+    10: 1000
+);
+
+//font family
+$font-family-map: (
+    normal: $font-family-text,
+    regular: $font-family-text,
+    text: $font-family-text,
+    header: $font-family-header,
+    small: $font-family-small,
+    serif: $font-family-serif,
+    mono: $font-family-mono
+);

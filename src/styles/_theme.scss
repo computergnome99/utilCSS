@@ -1,0 +1,30 @@
+//colors
+
+$primary: #814EFA !default;
+$secondary: #3D62F9 !default;
+$tertiary: #49B3F5 !default;
+$success: #4CF46E !default;
+$danger: #F43B3B !default;
+$warning: #E4C132 !default;
+$neutral: #94B6C2 !default;
+$light: #E9F3FF !default;
+$dark: #0D1117 !default;
+$white: #FFFFFF !default;
+$black: #000000 !default;
+
+//fonts
+
+$font-family-text: 'Segoe UI Variable Text', system-ui, sans-serif !default;
+$font-family-header: 'Segoe UI Variable Display', system-ui, sans-serif !default;
+$font-family-small: 'Segoe UI Variable Small', system-ui, sans-serif !default;
+$font-family-serif: 'Cambria', serif !default;
+$font-family-mono: 'Source Code Pro', monospace !default;
+
+$font-weight-light: 100 !default;
+$font-weight-lighter: 300 !default;
+$font-weight-normal: 500 !default;
+$font-weight-bolder: 700 !default;
+$font-weight-bold: 1000 !default;
+
+$font-size: 16px !default;
+$line-height: $font-size !default;
