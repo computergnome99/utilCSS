@@ -2,6 +2,14 @@
 
 A modern CSS framework for the UtilGroup family of Products.
 
+Author: Calvin Bonner @computergnome99
+
+Version: 0.0.1 (Pre-Release)
+
+License: MIT
+
+---
+
 ## Shadows
 
 | Class | Mixin | Properties |
