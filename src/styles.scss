@@ -1,1 +1,15 @@
 @import 'styles/main';
+
+body {
+    background-color: $dark;
+    height: 100vh;
+}
+
+app-root {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+}

@@ -9,33 +9,23 @@ $exclude: $text-type-map;
 }
 
 //mixin
-// @mixin box-shadow($size, $color: $dark) {
-//     $shad-y: map-get($shadow-size-map, $size, y);
-//     $shad-blur: map-get($shadow-size-map, $size, blur);
-//     $shad-opacity: map-get($shadow-size-map, $size, opacity);
-//     box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
-// }
-
-//classes
-@each $name, $size in $shadow-size-map {
-    @each $type in $text-type-map {
-        #{$type}.shadow-#{$name} {
-            $shad-y: map-get($map: $size, $key: y);
-            $shad-blur: map-get($map: $size, $key: blur);
-            $shad-opacity: map-get($map: $size, $key: opacity);
-            text-shadow: 0px #{$shad-y} #{$shad-blur} rgba($dark, $shad-opacity);
-        }
-    }
-    .shadow-#{$name}#{not-chain($exclude)} {
-        $shad-y: map-get($map: $size, $key: y);
-        $shad-blur: map-get($map: $size, $key: blur);
-        $shad-opacity: map-get($map: $size, $key: opacity);
-        box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($dark, $shad-opacity);
-        // @include box-shadow($name, $dark);
-    }
+@mixin box-shadow($size, $color: $dark) {
+    $shad-map: map-get($shadow-size-map, $size);
+    $shad-y: map-get($shad-map, y);
+    $shad-blur: map-get($shad-map, blur);
+    $shad-opacity: map-get($shad-map, opacity);
+    box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
 }
 
+@mixin text-shadow($size, $color: $dark) {
+    $shad-map: map-get($shadow-size-map, $size);
+    $shad-y: map-get($shad-map, y);
+    $shad-blur: map-get($shad-map, blur);
+    $shad-opacity: map-get($shad-map, opacity);
+    text-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
+}
 
+//classes
 @each $name, $color in $color-map {
     .bg-#{$name} {
         background-color: $color;
@@ -52,17 +42,22 @@ $exclude: $text-type-map;
     @each $shad-name, $size in $shadow-size-map {
         @each $type in $text-type-map {
             #{$type}.shadow-#{$shad-name}-#{$name} {
-                $shad-y: map-get($map: $size, $key: y);
-                $shad-blur: map-get($map: $size, $key: blur);
-                $shad-opacity: map-get($map: $size, $key: opacity);
-                text-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
+                @include text-shadow($shad-name, $color)
             }
         }
         .shadow-#{$shad-name}-#{$name}#{not-chain($exclude)} {
-            $shad-y: map-get($map: $size, $key: y);
-            $shad-blur: map-get($map: $size, $key: blur);
-            $shad-opacity: map-get($map: $size, $key: opacity);
-            box-shadow: 0px #{$shad-y} #{$shad-blur} rgba($color, $shad-opacity);
+            @include box-shadow($shad-name, $color);
         }
+    }
+}
+
+@each $name, $size in $shadow-size-map {
+    @each $type in $text-type-map {
+        #{$type}.shadow-#{$name} {
+            @include text-shadow($name, $dark);
+        }
+    }
+    .shadow-#{$name}#{not-chain($exclude)} {
+        @include box-shadow($name, $dark);
     }
 }
