@@ -1,0 +1,73 @@
+//padding
+
+//mixin
+@mixin padding($amnt, $dir: '') {
+    @if $dir == '' {
+        padding: $base-spacing * $amnt;
+    } @else {
+        padding-#{$dir}: $base-spacing * $amnt;
+    }
+}
+//classes
+@for $i from 1 through 20 {
+    .padding-#{$i}, .p-#{$i} {
+        @include padding($i);
+    }
+    .padding-top-#{$i}, .p-top-#{$i}, .padding-t-#{$i}, .p-t-#{$i} {
+        @include padding($i, top);
+    }
+    .padding-bottom-#{$i}, .p-bottom-#{$i}, .padding-b-#{$i}, .p-b-#{$i} {
+        @include padding($i, bottom);
+    }
+    .padding-left-#{$i}, .p-left-#{$i}, .padding-l-#{$i}, .p-l-#{$i} {
+        @include padding($i, left);
+    }
+    .padding-right-#{$i}, .p-right-#{$i}, .padding-r-#{$i}, .p-r-#{$i} {
+        @include padding($i, right);
+    }
+    .padding-y-#{$i}, .p-y-#{$i} {
+        @include padding($i, top);
+        @include padding($i, bottom);
+    }
+    .padding-x-#{$i}, .p-x-#{$i} {
+        @include padding($i, left);
+        @include padding($i, right);
+    }
+}
+
+//margin
+
+//mixin
+@mixin margin($amnt, $dir: '') {
+    @if $dir == '' {
+        margin: $base-spacing * $amnt;
+    } @else {
+        margin-#{$dir}: $base-spacing * $amnt;
+    }
+}
+//classes
+@for $i from 1 through 20 {
+    .margin-#{$i}, .m-#{$i} {
+        @include margin($i);
+    }
+    .margin-top-#{$i}, .m-top-#{$i}, .margin-t-#{$i}, .m-t-#{$i} {
+        @include margin($i, top);
+    }
+    .margin-bottom-#{$i}, .m-bottom-#{$i}, .margin-b-#{$i}, .m-b-#{$i} {
+        @include margin($i, bottom);
+    }
+    .margin-left-#{$i}, .m-left-#{$i}, .margin-l-#{$i}, .m-l-#{$i} {
+        @include margin($i, left);
+    }
+    .margin-right-#{$i}, .m-right-#{$i}, .margin-r-#{$i}, .m-r-#{$i} {
+        @include margin($i, right);
+    }
+    .margin-y-#{$i}, .m-y-#{$i} {
+        @include margin($i, top);
+        @include margin($i, bottom);
+    }
+    .margin-x-#{$i}, .m-x-#{$i} {
+        @include margin($i, left);
+        @include margin($i, right);
+    }
+}
