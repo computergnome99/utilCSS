@@ -69,7 +69,7 @@ $text-type-map: (
 );
 
 //color
-$color-map: (
+$theme-colors: (
     primary: $primary,
     secondary: $secondary,
     tertiary: $tertiary,
@@ -77,8 +77,48 @@ $color-map: (
     danger: $danger,
     warning: $warning,
     neutral: $neutral,
+);
+
+$color-light-map: (
+    1: 25%,
+    2: 15%,
+    3: 10%,
+    4: 5%
+);
+
+$color-dark-map: (
+    6: 5%,
+    7: 10%,
+    8: 25%,
+    9: 40%,
+    10: 50%
+);
+
+$color-map: (
     light: $light,
     dark: $dark,
     white: $white,
     black: $black
 );
+
+@each $name, $color in $theme-colors {
+    $custom-color-map: ();
+    @each $suffix, $amnt in $color-light-map {
+        $custom-color: (
+            #{$name}-#{$suffix}: lighten($color, $amnt)
+        );
+        $custom-color-map: map-merge($custom-color-map, $custom-color);
+    }
+    $custom-color: (
+        #{$name}-5: $color,
+        #{$name}: $color
+    );
+    $custom-color-map: map-merge($custom-color-map, $custom-color);
+    @each $suffix, $amnt in $color-dark-map {
+        $custom-color: (
+            #{$name}-#{$suffix}: darken($color, $amnt)
+        );
+        $custom-color-map: map-merge($custom-color-map, $custom-color);
+    }
+    $color-map: map-merge($color-map, $custom-color-map); 
+}
