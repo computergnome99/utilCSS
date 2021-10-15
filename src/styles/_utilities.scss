@@ -9,7 +9,7 @@
     }
 }
 //classes
-@for $i from 1 through 20 {
+@for $i from 0 through 20 {
     .padding-#{$i}, .p-#{$i} {
         @include padding($i);
     }
@@ -46,7 +46,7 @@
     }
 }
 //classes
-@for $i from 1 through 20 {
+@for $i from 0 through 20 {
     .margin-#{$i}, .m-#{$i} {
         @include margin($i);
     }
