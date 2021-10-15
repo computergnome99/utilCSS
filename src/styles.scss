@@ -1,8 +1,10 @@
 @import 'styles/main';
 
 body {
-    background-color: $light;
+    background-color: $dark;
     height: 100vh;
+    width: max-content;
+    margin: 0 auto;
 }
 
 app-root {
@@ -11,5 +13,5 @@ app-root {
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 16px;
 }

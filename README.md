@@ -33,3 +33,7 @@ License: MIT
 | background-#{name}, bg-#{name} | background | color |
 | text-#{name}, fc-#{name} | text | color |
 | border-#{name}, bc-#{name} | border | color |
+
+## Color Pallet
+
+![Color Pallet Image](/src/assets/colors.png)
